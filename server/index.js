@@ -125,9 +125,18 @@ app.post('/post',uploadMiddleware.single('file'),async(req,res)=>{//note,this 'f
 })
 
 app.get('/post',async(req,res)=>{
-    const allPost = await PostModel.find().populate('author',['username']);
+    const allPost = await PostModel.find().populate('author',['username']).sort({createdAt : -1}).limit(20);
     res.json(allPost)
 })
+app.get('/post/:id',async(req,res)=>{
+    const {id} = req.params;
+    const postDoc = await PostModel.findById({_id : id }).populate('author',['username']);
+    res.json(postDoc);
+})
+
+
+
+
 
 app.listen(4000 , ()=>{
     console.log("server started")

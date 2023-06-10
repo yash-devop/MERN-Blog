@@ -9,7 +9,7 @@ const modules = {
       [{ 'header': [1, 2, false] }],
       ['bold', 'italic', 'underline','strike', 'blockquote'],
       [{'list': 'ordered'}, {'list': 'bullet'}, {'indent': '-1'}, {'indent': '+1'}],
-      ['link', 'image'],
+      ['link', 'image','video'],
       ['clean']
     ],
   }
@@ -17,12 +17,11 @@ const modules = {
     'header',
     'bold', 'italic', 'underline', 'strike', 'blockquote',
     'list', 'bullet', 'indent',
-    'link', 'image'
+    'link', 'image','video'
   ]
 
 const CreatePost = () => {
     const [title , setTitle] = useState("")
-    const [author , setAuthor] = useState("")
     const [summary , setSummary] = useState("")
     const [content , setContent] = useState("")
     const [files , setFiles] = useState("")
@@ -34,7 +33,6 @@ const CreatePost = () => {
       data.append('title',title)
       data.append('summary',summary)
       data.append('content',content)
-      data.append('author',author)
       data.set('file',files[0])
       
       const response = await fetch("http://localhost:4000/post",{
@@ -62,8 +60,6 @@ const CreatePost = () => {
                     <button className='create-btn'>Create Post</button>
                 </div>
                 <input type='text' placeholder='Your Post Title'  className='' value={title} onChange={(e)=>setTitle(e.target.value)}/>
-                <label>Author</label>
-                <input type='text' placeholder='Author' value={author} className='' onChange={(e)=>setAuthor(e.target.value)}/>
                 <label>Summary</label>
                 <input type='text' placeholder='Summary' value={summary} className='' onChange={(e)=>setSummary(e.target.value)}/>
                 <input id="file-upload" type="file" className='file-upload' name='file' onChange={(e)=>setFiles(e.target.files)}/>

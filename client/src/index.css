@@ -24,7 +24,7 @@ img{
   max-width: 100%;
 }
 header{
-  display: flex;
+  display: fixed;
   justify-content: space-between;
   margin-bottom: 50px;
   align-items: center;
@@ -34,6 +34,11 @@ header{
 header a{
   text-decoration: none;
   color: #333;
+}
+.navigation-bar{
+  display: flex;
+  height: 70px;
+  position: relative;
 }
 
 header a.logo{
@@ -46,6 +51,26 @@ header nav {
   gap:15px;
 }
 
+.sticky{
+  background-color: white;
+  position: sticky;
+  display: flex;
+  top:0;
+  width: 100%;
+  height: 70px;
+  z-index: 100;
+  box-shadow: 0 4px 3px -1px rgba(0, 0, 0, 0.1);  
+}
+
+.nav-scroll{
+  position: absolute;
+  background-color: red;
+  width: 100%;
+  height: 3px;
+  bottom: 0;
+  /* transform: translateX(-50%) */
+  transition: all 0.1s ease-out;
+}
 div .posts{
    display: grid;
    grid-template-columns: 1.1fr 1.1fr;
@@ -54,12 +79,14 @@ div .posts{
 }
 
 
-div .texts h2{
+div .texts .title{
   margin: 0;
   font-size: 2.2rem;
   max-width:700px;
+  color: #000;
+  text-decoration: none;
 }
-div .texts h2:hover{
+div .texts .title:hover{
   text-decoration: underline;
   cursor: pointer;
 }
@@ -210,3 +237,47 @@ div .posts .post-info{
 .create-btn:hover{
   background-color: #242222;
 }
+
+.post-page{
+
+}
+.post-title{
+  margin-top: 2rem;
+}
+.post-title:hover{
+  text-decoration: underline;
+  cursor: default;
+}
+.post-image{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  background-repeat: no-repeat;
+  object-fit: cover;
+  text-align: center;
+}
+.post-image img{
+  width: 100%;
+  max-width: 1000px;
+  max-height: 440px;
+  text-align: center;
+  margin: 0;
+}
+.post-content{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  max-width: 870px;
+}
+.post-description{
+  line-height: 38px;
+}
+
+
+/* media-queries */
+
+/* @media only screen and (max-width: 600px)  {} */
