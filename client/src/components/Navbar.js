@@ -19,9 +19,6 @@ const Navbar = () => {
         setSticky(window.scrollY > 150)
         // console.log("stickey",window.scrollY)
         const scrollHeight = (document.body.scrollHeight - window.innerHeight);
-        console.log("documentScrollHeight",document.body.scrollHeight)
-        console.log("innerheight",window.innerHeight)
-        console.log("scrollheight",scrollHeight)
 
         if(scrollHeight){
           setCompletionBar(Number((window.scrollY / scrollHeight).toFixed(2)) * 100)

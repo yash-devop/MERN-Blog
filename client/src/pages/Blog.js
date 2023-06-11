@@ -6,6 +6,8 @@ const Blog = () => {
 
   const [postData,setPostData] = useState(null);
   const [isPost,  setisPost] = useState(false);
+  const [recentPostData,setRecentPostData] = useState(null);
+  const [isRecentPost,  setIsRecentPost] = useState(false);
 
   useEffect(()=>{
     fetch("http://localhost:4000/post").then((res)=>{
@@ -19,10 +21,21 @@ const Blog = () => {
     })
   },[])
 
+  useEffect(()=>{
+    fetch("http://localhost:4000/recentpost").then((res)=>{
+      res.json().then((posts)=>{
+        console.log(posts)
+        setRecentPostData(posts)
+        setIsRecentPost(true)
+      })
+    }).catch((err)=>{
+      console.log(err)
+    })
+  },[])
   console.log("useState PostData",postData)
   return (
     <>
-        <Post posts={postData} isPost={isPost}/>
+        <Post posts={postData} isPost={isPost} recentPost={recentPostData} isRecentPost={isRecentPost}/>
     </>
   )
 }

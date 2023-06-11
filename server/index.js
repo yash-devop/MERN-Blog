@@ -125,7 +125,7 @@ app.post('/post',uploadMiddleware.single('file'),async(req,res)=>{//note,this 'f
 })
 
 app.get('/post',async(req,res)=>{
-    const allPost = await PostModel.find().populate('author',['username']).sort({createdAt : -1}).limit(20);
+    const allPost = await PostModel.find().populate('author',['username']).sort({createdAt : -1}).limit(1);
     res.json(allPost)
 })
 app.get('/post/:id',async(req,res)=>{
@@ -134,6 +134,10 @@ app.get('/post/:id',async(req,res)=>{
     res.json(postDoc);
 })
 
+app.get('/recentpost',async(req,res)=>{
+    const allPost = await PostModel.find().populate('author',['username']).sort({createdAt : -1}).limit(30);
+    res.json(allPost)
+})
 
 
 
