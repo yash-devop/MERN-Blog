@@ -8,6 +8,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   padding: 0;
   font-family: 'Poppins', sans-serif;
+  background-color: #F9F6EE;
 }
 
 code {
@@ -33,7 +34,8 @@ header{
 
 header a{
   text-decoration: none;
-  color: #333;
+  color: #1528A1;
+  font-weight: bold;
 }
 .navigation-bar{
   display: flex;
@@ -52,7 +54,7 @@ header nav {
 }
 
 .sticky{
-  background-color: white;
+  background-color: #F9F6EE;
   position: sticky;
   display: flex;
   top:0;
@@ -76,9 +78,27 @@ div .posts{
    grid-template-columns: 1.1fr 1.1fr;
    gap: 20px;
    margin-bottom: 30px;
+
+}
+.postImg{
+  position: relative;
+  display: inline-block;
+}
+.postImg::before{
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(29, 53, 188, 0.75);
 }
 
-
+.postImg .img{
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
 div .texts .title{
   margin: 0;
   font-size: 2.2rem;
@@ -103,6 +123,7 @@ div .posts .post-info{
   gap: 30px;
   color:#696666;
   font-size: 0.9rem;
+  white-space: nowrap;
 }
 .author{
   margin-top: 10px;

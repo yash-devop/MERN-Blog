@@ -19,7 +19,7 @@ const Post = ({posts , isPost}) => {
                   <>
                       <div className="posts">
                           <div className="postImg">
-                            <img src={`http://localhost:4000/uploads/${currelem.cover}`}/>
+                            <img className="img" src={`http://localhost:4000/uploads/${currelem.cover}`}/>
                           </div>
                           <div className="texts">
                             
