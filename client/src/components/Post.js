@@ -78,7 +78,7 @@ const Post = ({posts , isPost , recentPost , isRecentPost}) => {
                             </div>
                             <div>
                               <div className='grid-article-title' onMouseEnter={hoverFunction}>
-                                <Link to={`/post/${currelem._id}`}><h1>{currelem?.title}</h1></Link>
+                                <Link to={`/post/${currelem._id}`} className='grid-title'><h1 className='grid-title'>{currelem?.title}</h1></Link>
                                 <div className='arrow-icon-class'>
                                   <BsArrowUpRight className='arrow-icon'/>
                                 </div>
