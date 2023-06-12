@@ -12,8 +12,12 @@ const Post = ({posts , isPost , recentPost , isRecentPost}) => {
     setHovered(true)
     console.log("hovereddddD",hovered)
   }
+
   return (
     <>
+    <h1 style={{color : '#172EB9'}}>
+      Untitled Blogs
+    </h1>
     {
       isPost ? (
         <>
@@ -75,10 +79,18 @@ const Post = ({posts , isPost , recentPost , isRecentPost}) => {
                             </div>
                             <div>
                               <div className='grid-article-title' onMouseEnter={hoverFunction}>
-                                <h1><Link to={`/post/${currelem._id}`} className='title' >{currelem?.title}</Link></h1>
-                                <BsArrowUpRight size={30} className={`arrow-icon ${hovered ? 'hovered' : ""}`} />
+                                <Link to={`/post/${currelem._id}`}><h1>{currelem?.title}</h1></Link>
+                                <div className='arrow-icon-class'>
+                                  <BsArrowUpRight className='arrow-icon'/>
+                                </div>
                               </div>
-                              <p>{`${currelem.summary}`.substring(0,100)+"..."}</p>
+                              {/* {`${currelem.summary}`.substring(0,115)+"..."} */}
+                              {/* problem solved: the substring was converting a small text also lesser than 115char into ... */}
+                              <p>
+                                {
+                                   currelem.summary.length > 115 ? currelem.summary.substring(0,115)+"..." : currelem.summary
+                                }
+                              </p>
                             </div>
 
                         </div>)
