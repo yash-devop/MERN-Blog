@@ -37,7 +37,7 @@ header{
 
 header a{
   text-decoration: none;
-  color: #1528A1;
+  /* color: #1528A1; */
   font-weight: bold;
 }
 .navigation-bar{
@@ -49,6 +49,7 @@ header a{
 header a.logo{
   font-weight: bold;
   font-size: 1.5rem;
+  color: #000;
 }
 
 header nav {
@@ -215,7 +216,7 @@ div .posts .post-info{
   display: flex;
   align-items: center;
   gap: 1rem;
-  
+  color: #000 !important;
 }
 .user-detail .logout{
   height: 30px;
@@ -229,6 +230,10 @@ div .posts .post-info{
 .user-detail button:hover{
   background-color: #2e2c2c;
   cursor: pointer;
+}
+.auth p{
+  color: #000 !important;
+  font-weight: bold;
 }
 .create-post{
   white-space: nowrap;
@@ -329,12 +334,22 @@ div .posts .post-info{
   margin: 0 auto;
   max-width: 870px;
 }
+.posts-content{
+  padding-bottom:45px;
+}
 .post-description{
   line-height: 38px;
 }
 
 
-/* related-article-container */
+.related-article-container h1{
+  font-size: 5rem;
+  color: #000;
+}
+.explore{
+  /* color:#172EB9; */
+  font-size: 5rem;
+}
 
 .grid-article{
   display: grid;
@@ -412,7 +427,7 @@ div .posts .post-info{
  
 .grid-article{
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(1,1fr);
   /* grid-template-rows: 1fr 1fr; */
   /* grid-template-columns: 400px 400px 400px; */
   gap: 10px;

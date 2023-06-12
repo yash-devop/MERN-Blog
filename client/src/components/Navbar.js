@@ -74,9 +74,8 @@ const Navbar = () => {
                 ) : (
                   <>
                   <div className='user-detail'>
-
-                    <Link to='/login'>Login</Link>
-                    <Link to='register'>Register</Link>
+                    <Link to='/login' ><p className='auth'>Login</p></Link>
+                    <Link to='register' ><p className='auth'>Register</p></Link>
                   </div>
                   </>
                 )}

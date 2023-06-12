@@ -15,8 +15,8 @@ const Post = ({posts , isPost , recentPost , isRecentPost}) => {
 
   return (
     <>
-    <h1 style={{color : '#172EB9'}}>
-      Untitled Blogs
+    <h1 className='explore'>
+      Explore Blog
     </h1>
     {
       isPost ? (
@@ -48,7 +48,6 @@ const Post = ({posts , isPost , recentPost , isRecentPost}) => {
                                 </div>
                               </div>
                           </div>
-
                       </div>
                      
                   </>
