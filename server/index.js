@@ -7,10 +7,13 @@ const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
 const UserModel = require('./models/User')
 const CookieParser = require('cookie-parser')
-const multer = require('multer')
-
+const multer = require('multer') 
+const dotenv = require('dotenv')
 const PostModel = require("./models/Post.js")
 
+dotenv.config({
+    path : './config.env'
+})
 app.use(cors({credentials : true , origin : 'http://localhost:3000'}))
 app.use(express.json())
 app.use(CookieParser())
@@ -31,11 +34,11 @@ const storage = multer.diskStorage({
 const uploadMiddleware = multer({storage : storage})
 // const uploadMiddleware = multer({dest : 'uploads/'})
 
-const secretSalt = "sdath321dadiojida924"; // tbh any random letters.
+const secretSalt = process.env.SECRET_SALT; // tbh any random letters.
 
 
 // Mongoose Connectivity:
-mongoose.connect('mongodb+srv://yashhu:7ujyEzmsJb8Mns1e@blogcluster0.vl5nosy.mongodb.net/')
+mongoose.connect(process.env.MONGODB_KEY)
 .then((res)=>console.log("Database Connected"))
 .catch((err)=>console.log(err))
 
@@ -142,6 +145,6 @@ app.get('/recentpost',async(req,res)=>{
 
 
 
-app.listen(4000 , ()=>{
-    console.log("server started")
+app.listen(process.env.PORT || 5000 , ()=>{
+    console.log(`server started at port ${process.env.PORT || 5000}`)
 })

@@ -12,7 +12,14 @@ const ThatPost = () => {
         })
     },[])
     
-    if(!postInfo) return '';
+    // if(!postInfo) return 'h1';
+    if(!postInfo) return (
+        <>
+          <div className="loader-div"> 
+            <span class="loader"></span>
+          </div>
+        </>
+    );
     return (
         <>
             <div className='post-page'>

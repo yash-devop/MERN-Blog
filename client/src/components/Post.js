@@ -15,6 +15,11 @@ const Post = ({posts , isPost , recentPost , isRecentPost}) => {
 
   return (
     <>
+    <div className='landing-container'>
+        <h1>Blogify</h1>
+        <p>Explore the World of Insightful Content</p>
+        <h4>Discover engaging articles, stories, <br/>and perspectives on a wide range of topics.</h4>
+    </div>
     <h1 className='explore'>
       Explore Blog
     </h1>
@@ -57,7 +62,9 @@ const Post = ({posts , isPost , recentPost , isRecentPost}) => {
         </>
       ) : (
         <>
-            <h1>Didnt Got the Data from backend.</h1>
+          <div className="loader-div"> 
+            <span class="loader"></span>
+          </div>
         </>
       )
     }
@@ -101,7 +108,6 @@ const Post = ({posts , isPost , recentPost , isRecentPost}) => {
         </>
       ) : (
         <>
-            <h1>Didnt Got the Data from backend.</h1>
         </>
       )
     }

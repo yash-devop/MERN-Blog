@@ -28,7 +28,6 @@ const Navbar = () => {
 
       window.addEventListener('scroll',handleScroll)
       return()=>{
-        // window.removeEventListener('scroll',handleScroll)
         window.removeEventListener('scroll',handleScroll)
       }
     },[])
@@ -51,9 +50,7 @@ const Navbar = () => {
       setUserInfo("");
       navigate('/')
     }
-    // const username = userInfo?.username
-    // console.log("Username:",username)
-    // console.log("Userinfo:",userInfo)
+
   return (
         <>
         {
@@ -74,7 +71,7 @@ const Navbar = () => {
                 ) : (
                   <>
                   <div className='user-detail'>
-                    <Link to='/login' ><p className='auth'>Login</p></Link>
+                    <Link to='/login' className='auth'><p className='auth'>Login</p></Link>
                     <Link to='register' ><p className='auth'>Register</p></Link>
                   </div>
                   </>
@@ -102,9 +99,8 @@ const Navbar = () => {
                 ) : (
                   <>
                   <div className='user-detail'>
-
-                    <Link to='/login'>Login</Link>
-                    <Link to='register'>Register</Link>
+                    <Link to='/login' className='auth'><p className='auth'>Login</p></Link>
+                    <Link to='register' ><p className='auth'>Register</p></Link>
                   </div>
                   </>
                 )}

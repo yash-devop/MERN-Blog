@@ -21,7 +21,7 @@ code {
 
 div .whole-container{
   padding: 10px;
-  max-width: 1300px;
+  max-width: 1200px; /* 1300px*/
   margin: 0 auto;
 }
 img{
@@ -79,6 +79,37 @@ header nav {
   /* transform: translateX(-50%) */
   transition: all 0.1s ease-out;
 }
+
+.landing-container{
+  display: flex;
+  flex-direction: column;
+  /* align-items: end; */
+  margin-bottom: 9rem;
+  padding: 0;
+  /* border: 1px solid red; */
+}
+.landing-container h1{
+  margin: 0;
+  letter-spacing: -1.65px;
+  color: #17298C;
+  font-size: 6rem;
+}
+.landing-container p{
+  margin: 0;
+  color: #17298C;
+
+  font-size: 3rem;
+  text-transform: capitalize;
+  padding-top: 3rem;
+}
+.landing-container h4{
+  font-size: 2.1rem;
+  font-weight: 100;
+}
+.explore{
+  /* color:#172EB9; */
+  font-size: 3rem;
+}
 div .posts{
    display: grid;
    grid-template-rows: 1fr;
@@ -92,6 +123,7 @@ div .posts{
   display: inline-block;
   object-fit: contain;
 
+  clip-path: polygon(9% 0%,100% 0%,100% 100%,0% 100%,0% 8%);
 }
 .postImg::before{
   content: "";
@@ -211,7 +243,7 @@ div .posts .post-info{
   background-color: #181717;
 }
 .form-type{
-  font-size:5rem;
+  font-size:3.2rem;
   margin: 0;
   margin-bottom: 30px;
 }
@@ -235,8 +267,8 @@ div .posts .post-info{
   background-color: #2e2c2c;
   cursor: pointer;
 }
-.auth p{
-  color: #000 !important;
+.user-detail .auth {
+  color: #17298C !important;
   font-weight: bold;
 }
 .create-post{
@@ -351,13 +383,10 @@ div .posts .post-info{
 
 
 .related-article-container h1{
-  font-size: 5rem;
+  font-size: 3rem;
   color: #000;
 }
-.explore{
-  /* color:#172EB9; */
-  font-size: 5rem;
-}
+
 
 .grid-article{
   display: grid;
@@ -514,6 +543,30 @@ footer a {
 .com ul li{
   padding:5px 0;
 }
+.loader-div{
+  display: flex;
+  justify-content: center;
+  padding-top: 100px;
+}
+.loader {
+  width: 48px;
+  height: 48px;
+  border: 5px dotted #6d6666;
+  border-radius: 50%;
+  display: inline-block;
+  position: relative;
+  box-sizing: border-box;
+  animation: rotation 2s linear infinite;
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+} 
 
 @media only screen and (max-width: 749px) {
   .main-footer {
