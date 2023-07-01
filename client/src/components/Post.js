@@ -13,12 +13,26 @@ const Post = ({posts , isPost , recentPost , isRecentPost}) => {
     console.log("hovereddddD",hovered)
   }
 
+  
   return (
     <>
     <div className='landing-container'>
-        <h1>Blogify</h1>
+        <div className='landing-title'>
+          <h1>Blogify</h1>
+          {/* <svg width="38" height="37" viewBox="0 0 38 37" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M1.73395 20.4927C4.9168 15.8595 2.38025 9.48896 2.87443 4.2987" stroke="#090808" stroke-width="3" stroke-linecap="round"/>
+<path d="M10 27C13.8556 25.9229 17.7231 21.0898 19.9324 17.9884C21.8029 15.3627 23.5611 12.6512 25.4505 10.0426C27.2249 7.59265 30.2611 5.02756 31 2" stroke="#090808" stroke-width="3" stroke-linecap="round"/>
+<path d="M17.1854 35.4632C23.7053 35.3146 29.4709 32.5377 35.9996 31.9621" stroke="#090808" stroke-width="3" stroke-linecap="round"/>
+</svg> */}<svg width="38" height="37" viewBox="0 0 38 37" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M1.73395 20.4927C4.9168 15.8595 2.38025 9.48896 2.87443 4.2987" stroke="#F2D53C" stroke-width="3" stroke-linecap="round"/>
+<path d="M10 27C13.8556 25.9229 17.7231 21.0898 19.9324 17.9884C21.8029 15.3627 23.5611 12.6512 25.4505 10.0426C27.2249 7.59265 30.2611 5.02756 31 2" stroke="#F2D53C" stroke-width="3" stroke-linecap="round"/>
+<path d="M17.1854 35.4632C23.7053 35.3146 29.4709 32.5377 35.9996 31.9621" stroke="#F2D53C" stroke-width="3" stroke-linecap="round"/>
+</svg>
+
+
+        </div>
         <p>Explore the World of Insightful Content</p>
-        <h4>Discover engaging articles, stories, <br/>and perspectives on a wide range of topics.</h4>
+        <h4>Discover engaging articles, stories<br/>and perspectives on a wide range of topics.</h4>
     </div>
     <h1 className='explore'>
       Explore Blog

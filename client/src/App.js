@@ -5,6 +5,7 @@ import Register from './pages/Register';
 import Blog from './pages/Blog'
 import CreatePost from './pages/CreatePost'
 import ThatPost from './pages/ThatPost';
+import ScrollTop from './components/ScrollTop';
 function App() {
   return (
     <>
@@ -17,6 +18,7 @@ function App() {
         <Route path='/create' element={<CreatePost/>}/>
         <Route path='/post/:id' element={<ThatPost/>} />
       </Routes>
+      <ScrollTop/>
     </div>
     </>
   );

@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom';
 import { UserContext } from '../contextapi/UserContext';
+import {MdLogout,MdOutlineCreate} from 'react-icons/md'
 // import {useCookies} from 'react-cookie'
 const Navbar = () => {
   const navigate = useNavigate();
@@ -48,6 +49,7 @@ const Navbar = () => {
         method: 'POST'
       })
       setUserInfo("");
+      window.location.reload();  // tried to reload  the page and then navigate to the page.
       navigate('/')
     }
 
@@ -63,8 +65,8 @@ const Navbar = () => {
                   <>
                   <div className='user-detail'>
                     <p className='welcome-user'>{`Welcome,${userInfo?.username}`}</p>
-                    <Link to={'/create'}><button className='create-post'>Create Post</button></Link>
-                    <button className='logout' onClick={logout}>Logout</button>
+                    <Link to={'/create'}><button className='create-post'>Create Post<MdOutlineCreate className='logout-icon'/></button></Link>
+                    <button className='logout' onClick={logout}>Logout<MdLogout/></button>
                   </div>
                       
                   </>
@@ -91,8 +93,8 @@ const Navbar = () => {
                   <>
                   <div className='user-detail'>
                     <p className='welcome-user'>{`Welcome,${userInfo?.username}`}</p>
-                    <Link to={'/create'}><button className='create-post'>Create Post</button></Link>
-                    <button className='logout' onClick={logout}>Logout</button>
+                    <Link to={'/create'}><button className='create-post'>Create Post<MdOutlineCreate className='logout-icon'/></button></Link>
+                    <button className='logout' onClick={logout}>Logout<MdLogout className='logout-icon'/></button>
                   </div>
                       
                   </>
