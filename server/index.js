@@ -33,7 +33,7 @@ const storage = multer.diskStorage({
 })
 const uploadMiddleware = multer({storage : storage})
 
-const secretSalt = process.env.SECRET_SALT; // tbh any random letters.
+const secretSalt = "sdath321dadiojida924" // tbh any random letters.
 
 
 // Mongoose Connectivity:
