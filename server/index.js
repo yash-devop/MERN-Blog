@@ -32,7 +32,6 @@ const storage = multer.diskStorage({
     }
 })
 const uploadMiddleware = multer({storage : storage})
-// const uploadMiddleware = multer({dest : 'uploads/'})
 
 const secretSalt = process.env.SECRET_SALT; // tbh any random letters.
 
