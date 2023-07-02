@@ -14,7 +14,7 @@ const PostModel = require("./models/Post.js")
 dotenv.config({
     path : './config.env'
 })
-app.use(cors({credentials : true , origin : 'https://mern-blog-api-rho.vercel.app'}))
+app.use(cors({credentials : true , origin : 'https://blogifyv1.vercel.app'}))
 app.use(express.json())
 app.use(CookieParser())
 app.use('/uploads',express.static(__dirname + '/uploads')) // for the image to be display on the website from uploads folder.
