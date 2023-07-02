@@ -33,7 +33,7 @@ const storage = multer.diskStorage({
 })
 const uploadMiddleware = multer({storage : storage})
 
-const   secretSalt = process.env.SECRET_SALT; // tbh any random letters.
+const secretSalt = process.env.SECRET_SALT; // tbh any random letters.
 
 
 // Mongoose Connectivity:
@@ -71,7 +71,7 @@ app.post('/login',async(req,res)=>{
                     throw err;
                 }
                 else{
-                    res.cookie('token',token).json({
+                    res.cookie('token',token,{ domain: 'https://blogifyv1.vercel.app' }).json({
                         id : userDoc._id,
                         username
                     })
