@@ -71,14 +71,11 @@ app.post('/login',async(req,res)=>{
                     throw err;
                 }
                 else{
-                    res.cookie('token',"yash")
+                    res.cookie('token',token,{ domain: 'blogifyv1.vercel.app', path: '/', secure: true }).json({
+                        id : userDoc._id,
+                        username
+                    })
                 }
-                // else{
-                //     res.cookie('token',token,{ domain: 'blogifyv1.vercel.app', path: '/', secure: true }).json({
-                //         id : userDoc._id,
-                //         username
-                //     })
-                // }
             })
         }
         else{
@@ -114,19 +111,41 @@ app.post('/post',uploadMiddleware.single('file'),async(req,res)=>{//note,this 'f
     console.log("filename", req.file?.filename)
     const {token} = req.cookies
 
-    jwt.verify(token,secretSalt,{},async (err,info)=>{
-        if(err) throw err;
-
-        const  {title , summary,content} = req.body;
-        const postDoc = await PostModel.create({
-            title,
-            summary,
-            content,
-            cover : req.file.filename,
-            author : info.id,
-        })
-        res.json(postDoc)
+    const  {title , summary,content} = req.body;
+    const postDoc = await PostModel.create({
+        title,
+        summary,
+        content,
+        cover : req.file.filename,
+        author : info.id,
     })
+    res.json(postDoc)
+    // jwt.verify(token,secretSalt,{},async (err,info)=>{
+    //     if(err) throw err;
+
+    //     const  {title , summary,content} = req.body;
+    //     const postDoc = await PostModel.create({
+    //         title,
+    //         summary,
+    //         content,
+    //         cover : req.file.filename,
+    //         author : info.id,
+    //     })
+    //     res.json(postDoc)
+    // })
+    // jwt.verify(token,secretSalt,{},async (err,info)=>{
+    //     if(err) throw err;
+
+    //     const  {title , summary,content} = req.body;
+    //     const postDoc = await PostModel.create({
+    //         title,
+    //         summary,
+    //         content,
+    //         cover : req.file.filename,
+    //         author : info.id,
+    //     })
+    //     res.json(postDoc)
+    // })
 })
 
 app.get('/post',async(req,res)=>{
