@@ -11,7 +11,7 @@ const Register = () => {
     const register=async(e)=>{
         e.preventDefault();
         try {
-            const response = await fetch('http://localhost:4000/register',{
+            const response = await fetch('https://mern-blog-api-rho.vercel.app/register',{
                 method: "POST",
                 body : JSON.stringify({username , password}),
                 headers: {'Content-type' : 'application/json'}

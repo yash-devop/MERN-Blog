@@ -5,7 +5,7 @@ const ThatPost = () => {
     const [postInfo,setPostInfo] = useState(null);
     const {id} = useParams();
     useEffect(()=>{
-        fetch(`http://localhost:4000/post/${id}`).then((res)=>{
+        fetch(`https://mern-blog-api-rho.vercel.app/post/${id}`).then((res)=>{
             res.json().then((postInfo)=>{
                 setPostInfo(postInfo)
             })
@@ -24,7 +24,7 @@ const ThatPost = () => {
         <>
             <div className='post-page'>
                 <div className='post-image'>
-                    <img src={`http://localhost:4000/uploads/${postInfo.cover}`} alt=""/>
+                    <img src={`https://mern-blog-api-rho.vercel.app/uploads/${postInfo.cover}`} alt=""/>
                 </div>
                 <div className='post-content'>
                     <h1 className='post-title'>{postInfo.title}</h1>

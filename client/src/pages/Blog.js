@@ -10,7 +10,7 @@ const Blog = () => {
   const [isRecentPost,  setIsRecentPost] = useState(false);
 
   useEffect(()=>{
-    fetch("http://localhost:4000/post").then((res)=>{
+    fetch("https://mern-blog-api-rho.vercel.app/post").then((res)=>{
       res.json().then((posts)=>{
         console.log(posts)
         setPostData(posts)
@@ -22,7 +22,7 @@ const Blog = () => {
   },[])
 
   useEffect(()=>{
-    fetch("http://localhost:4000/recentpost").then((res)=>{
+    fetch("https://mern-blog-api-rho.vercel.app/recentpost").then((res)=>{
       res.json().then((posts)=>{
         console.log(posts)
         setRecentPostData(posts)

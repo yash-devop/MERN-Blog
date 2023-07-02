@@ -33,19 +33,20 @@ const Post = ({posts , isPost , recentPost , isRecentPost}) => {
     <h1 className='explore'>
       Explore Blog
     </h1>
+    {/* http://localhost:4000 */}
     {
       isPost ? (
         <>
             {
               posts?.map((currelem)=>{
                 console.log("CurrEleme",currelem)
-                const pathData = `http://localhost:4000/uploads/${currelem.cover}`
+                const pathData = `https://mern-blog-api-rho.vercel.app/uploads/${currelem.cover}`
                 console.log(pathData)
                  return (
                   <>
                       <div className="posts">
                           <div className="postImg">
-                            <img className="img" src={`http://localhost:4000/uploads/${currelem.cover}`}/>
+                            <img className="img" src={`https://mern-blog-api-rho.vercel.app/uploads/${currelem.cover}`}/>
                           </div>
                           <div className='posts-content'>
                               <h2 className='title'><Link to={`/post/${currelem._id}`} className='title' >{currelem?.title}</Link></h2>
@@ -91,7 +92,7 @@ const Post = ({posts , isPost , recentPost , isRecentPost}) => {
                         return(
                         <div className='grid-article-contents' >
                             <div className='grid-article-image'>
-                                <img className='img' src={`http://localhost:4000/uploads/${currelem.cover}`}/>
+                                <img className='img' src={`https://mern-blog-api-rho.vercel.app/uploads/${currelem.cover}`}/>
                             </div>
                             <div>
                               <div className='grid-article-title' onMouseEnter={hoverFunction}>
