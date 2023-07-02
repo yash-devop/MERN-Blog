@@ -33,7 +33,7 @@ const Navbar = () => {
       }
     },[])
     useEffect(()=>{
-      const cookies = fetch("http://localhost:4000/profile",{
+      const cookies = fetch("https://mern-blog-api-rho.vercel.app/profile",{
         credentials : "include"
       })
       .then((response)=>{
@@ -44,7 +44,7 @@ const Navbar = () => {
       })
     },[])
     const logout=()=>{
-      fetch('http://localhost:4000/logout',{
+      fetch('https://mern-blog-api-rho.vercel.app/logout',{
         credentials : "include",
         method: 'POST'
       })
