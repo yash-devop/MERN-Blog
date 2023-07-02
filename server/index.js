@@ -66,12 +66,12 @@ app.post('/login',async(req,res)=>{
         // now token...
         if(passwordMatched){
             // loggedIn
-            jwt.sign({username , id:userDoc._id}, secretSalt,{},(err,token)=>{
+            jwt.sign({username , id:userDoc._id}, "sdath321dadiojida924",{},(err,token)=>{
                 if(err){
                     throw err;
                 }
                 else{
-                    res.cookie('token',token,{ domain: 'https://blogifyv1.vercel.app' , path:'/' }).json({
+                    res.cookie('token',token).json({
                         id : userDoc._id,
                         username
                     })
