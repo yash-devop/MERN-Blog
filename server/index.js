@@ -33,7 +33,7 @@ const storage = multer.diskStorage({
 })
 const uploadMiddleware = multer({storage : storage})
 
-const secretSalt = "sdath321dadiojida924" // tbh any random letters.
+const secretSalt = process.env.SECRET_SALT; // tbh any random letters.
 
 
 // Mongoose Connectivity:
@@ -66,12 +66,12 @@ app.post('/login',async(req,res)=>{
         // now token...
         if(passwordMatched){
             // loggedIn
-            jwt.sign({username , id:userDoc._id}, "sdath321dadiojida924",{},(err,token)=>{
+            jwt.sign({username , id:userDoc._id}, secretSalt,{},(err,token)=>{
                 if(err){
                     throw err;
                 }
                 else{
-                    res.cookie('token',token,{ domain: 'blogifyv1.vercel.app', path: '/', secure: true }).json({
+                    res.cookie('token',token).json({
                         id : userDoc._id,
                         username
                     })
@@ -111,41 +111,19 @@ app.post('/post',uploadMiddleware.single('file'),async(req,res)=>{//note,this 'f
     console.log("filename", req.file?.filename)
     const {token} = req.cookies
 
-    const  {title , summary,content} = req.body;
-    const postDoc = await PostModel.create({
-        title,
-        summary,
-        content,
-        cover : req.file.filename,
-        author : info.id,
+    jwt.verify(token,secretSalt,{},async (err,info)=>{
+        if(err) throw err;
+
+        const  {title , summary,content} = req.body;
+        const postDoc = await PostModel.create({
+            title,
+            summary,
+            content,
+            cover : req.file.filename,
+            author : info.id,
+        })
+        res.json(postDoc)
     })
-    res.json(postDoc)
-    // jwt.verify(token,secretSalt,{},async (err,info)=>{
-    //     if(err) throw err;
-
-    //     const  {title , summary,content} = req.body;
-    //     const postDoc = await PostModel.create({
-    //         title,
-    //         summary,
-    //         content,
-    //         cover : req.file.filename,
-    //         author : info.id,
-    //     })
-    //     res.json(postDoc)
-    // })
-    // jwt.verify(token,secretSalt,{},async (err,info)=>{
-    //     if(err) throw err;
-
-    //     const  {title , summary,content} = req.body;
-    //     const postDoc = await PostModel.create({
-    //         title,
-    //         summary,
-    //         content,
-    //         cover : req.file.filename,
-    //         author : info.id,
-    //     })
-    //     res.json(postDoc)
-    // })
 })
 
 app.get('/post',async(req,res)=>{
