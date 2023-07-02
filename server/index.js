@@ -71,7 +71,7 @@ app.post('/login',async(req,res)=>{
                     throw err;
                 }
                 else{
-                    res.cookie('token',token,{ domain: 'https://blogifyv1.vercel.app' }).json({
+                    res.cookie('token',token,{ domain: 'https://blogifyv1.vercel.app' , path:'/' }).json({
                         id : userDoc._id,
                         username
                     })
