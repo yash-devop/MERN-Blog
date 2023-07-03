@@ -71,7 +71,7 @@ app.post('/login',async(req,res)=>{
                     throw err;
                 }
                 else{
-                    res.cookie('token',token).json({
+                    res.cookie('token',token,{ domain: '.vercel.app', secure: true }).json({
                         id : userDoc._id,
                         username
                     })
