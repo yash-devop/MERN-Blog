@@ -64,14 +64,15 @@ app.post('/login',async(req,res)=>{
         console.log("isValid",passwordMatched)
 
         // now token...
+
         if(passwordMatched){
-            // loggedIn
+            // loggedIn code
             jwt.sign({username , id:userDoc._id}, secretSalt,{},(err,token)=>{
                 if(err){
                     throw err;
                 }
                 else{
-                    res.cookie('token',token,{ domain: '.vercel.app', secure: true }).json({
+                    res.cookie('token',token,{sameSite:'none'}).json({
                         id : userDoc._id,
                         username
                     })
