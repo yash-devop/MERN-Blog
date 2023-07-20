@@ -49,7 +49,7 @@ const Navbar = () => {
         method: 'POST'
       })
       setUserInfo("");
-      window.location.reload();  // tried to reload  the page and then navigate to the page.
+      // window.location.reload(); 
       navigate('/')
     }
 
