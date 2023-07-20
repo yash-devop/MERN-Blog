@@ -113,7 +113,7 @@ app.post('/post',uploadMiddleware.single('file'),async(req,res)=>{//note,this 'f
     console.log("filename", req.file?.filename)
     const {token} = req.cookies
 
-    jwt.verify(token,secretSalt,{},async (err,info)=>{
+    jwt.verify(token,secretSalt,{sameSite:'none',secure: true},async (err,info)=>{
         if(err) throw err;
 
         const  {title , summary,content} = req.body;
