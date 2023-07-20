@@ -94,7 +94,7 @@ app.post('/login',async(req,res)=>{
 app.get('/profile',(req,res)=>{
     const {token} = req.cookies
 
-    jwt.verify(token,secretSalt,{sameSite:'none',secure},(err,info)=>{
+    jwt.verify(token,secretSalt,{},(err,info)=>{
         if(err) throw err;
         res.json(info);
     })
