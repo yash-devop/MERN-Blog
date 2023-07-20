@@ -73,7 +73,7 @@ app.post('/login',async(req,res)=>{
                     throw err;
                 }
                 else{
-                    res.cookie('token',token,{sameSite:'none',secure}).json({
+                    res.cookie('token',token,{sameSite:'none',secure: true}).json({
                         id : userDoc._id,
                         username
                     })
