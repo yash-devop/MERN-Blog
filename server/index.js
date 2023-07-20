@@ -14,7 +14,7 @@ const PostModel = require("./models/Post.js")
 dotenv.config({
     path : './config.env'
 })
-app.use(cors({credentials : true , origin : '*'}))
+app.use(cors({credentials : true , origin : 'http://localhost:3000'}))
 // app.use(cors({credentials : true , origin : 'https://blogifyv1.vercel.app'}))
 app.use(express.json())
 app.use(CookieParser())
