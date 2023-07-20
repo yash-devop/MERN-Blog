@@ -103,7 +103,7 @@ app.get('/profile',(req,res)=>{
 // logout endpoint
 
 app.post('/logout',async(req,res)=>{
-    res.cookie('token' , "").json("ok")
+    res.cookie('token', '', { expires: new Date(0), sameSite: 'none', secure: true }).json("ok");
 })
 
 
