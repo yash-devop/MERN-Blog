@@ -38,6 +38,7 @@ const CreatePost = () => {
       const response = await fetch("https://mern-blog-api-rho.vercel.app/post",{
         method: "POST",
         body: data,
+        headers: {'Content-type' : 'application/json'},
         credentials: 'include'
       })
 
